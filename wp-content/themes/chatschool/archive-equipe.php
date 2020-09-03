@@ -9,163 +9,55 @@
     <div class="container">
       <h2>Nossa equipe</h2>
       <p class="subtitle">
-        Lorem ipsum dolor sit amet. Proin gravida nibh vel velit auctor aliquet.Lorem ipsum dolor sit amet.<br>
-        Lorem ipsum dolor sit amet. Proin gravida nibh vel velit auctor aliquet.
+        Conheça a nossa equipe 
       </p>
       <div class="container">
         <div class="row">
-          <div class="team-member col-2 col col-offset-desktop-1 col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team1.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
 
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team2.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
+          <?php
+            $args = [
+              'post_type'        => 'equipe',
+              'posts_per_page'   => -1,
+            ];
+            $myposts = get_posts( $args );
+            $loop = 0;
+            foreach ( $myposts as $post ) : setup_postdata( $post );
+              $classOffset = $loop === 0 || ($loop % 5 == 0) ? 'col-offset-desktop-1' : '';
+              ?>
+                <div class="team-member col-2 col <?= $classOffset; ?> col-desktop-2">
+                  <div class="img-box-round">
+                    <?php the_post_thumbnail(); ?>
+                  </div>
+                  <p class="img-box-label"><?php the_title(); ?></p>
+                  <div class="description">
+                    <h4><?php the_title(); ?></h4>
+                    <p>
+                      <?php the_content(); ?>
+                    </p>
 
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
+                    <div class="social">
+                      <?php
+                      if( have_rows('son-equipe-social', $post->ID) ):
+                        while ( have_rows('son-equipe-social', $post->ID) ) : the_row();
+                          ?>
+                            <a href="<?= get_sub_field('link'); ?>">
+                              <?= get_sub_field('icon'); ?>
+                            </a>
+                          <?php
+                        endwhile;
+                      endif;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+              <?php
+              $loop++;
+            endforeach;
+            wp_reset_postdata();
+          ?>
 
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team3.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team4.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team5.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="row">
-          <div class="team-member col-2 col col-offset-desktop-1 col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team1.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
 
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team2.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team3.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team4.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-          <div class="team-member col-2 col col-desktop-2">
-            <div class="img-box-round"><img src="<?= SONDIR; ?>/images/team/team5.jpg" alt=""></div>
-            <p class="img-box-label">Lorem Ipsum</p>
-
-            <div class="description">
-              <h4>Lorem Ipsum</h4>
-              <p>Aenean sodales dolor sit amet arcu suscipit convallis. Sed malesuada maximus finibus. Fusce ac dignissim dui. Aenean commodo, nulla vel maximus dictum</p>
-
-              <div class="social">
-                <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-                <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

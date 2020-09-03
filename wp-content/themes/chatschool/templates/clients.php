@@ -13,43 +13,31 @@
 
     <div class="container">
       <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon1.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon2.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon3.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon4.png" alt=""></div>
-      </div>
+        
+      <?php
+      if( have_rows('son-op-clients', 'option') ):
+        while ( have_rows('son-op-clients', 'option') ) : the_row();
+          ?>
+            <div class="col col-desktop-3">
+              <?php 
+                if(get_sub_field('link')) {
+                  ?>
+                  <a target="_blank" href="<?= get_sub_field('link'); ?>">
+                    <img src="<?= get_sub_field('image'); ?>" alt="">
+                  </a>
+                  <?php
+                }else {
+                  ?>
+                    <img src="<?= get_sub_field('image'); ?>" alt="">
+                  <?php
+                }
+              ?>
+            </div>
+          <?php
+        endwhile;
+      endif;
+      ?>
 
-      <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon5.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon6.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon7.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon8.png" alt=""></div>
-      </div>
-      <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon1.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon2.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon3.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon4.png" alt=""></div>
-      </div>
-
-      <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon5.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon6.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon7.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon8.png" alt=""></div>
-      </div>
-      <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon1.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon2.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon3.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon4.png" alt=""></div>
-      </div>
-
-      <div class="row">
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon5.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon6.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon7.png" alt=""></div>
-        <div class="col col-desktop-3 col-3"><img src="<?= SONDIR; ?>/images/clientes/icon8.png" alt=""></div>
       </div>
     </div>
   </section>

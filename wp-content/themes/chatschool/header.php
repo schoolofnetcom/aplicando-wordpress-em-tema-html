@@ -12,7 +12,15 @@
 </head>
 <body>
   <header id="header" class="page-home">
-    <img class="top-banner" src="<?= get_field('son-op-banner-home', 'option'); ?>" alt="">
+    <?php 
+      if(is_home()) {
+        $imgBanner = get_field('son-op-banner-home', 'option') ? get_field('son-op-banner-home', 'option') : get_field('son-op-banner-default', 'option');
+      }else {
+        $imgBanner = get_field('son-page-banner') ? get_field('son-page-banner') : get_field('son-op-banner-default', 'option');
+      }
+    ?>
+
+    <img class="top-banner" src="<?= $imgBanner; ?>" alt="">
     <div class="container">
       <div class="row">
         <div class="col col-desktop-3 col-6">

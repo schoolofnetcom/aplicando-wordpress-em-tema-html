@@ -29,7 +29,6 @@
         endwhile;
       endif;
       ?>
-
       
     </div>
 

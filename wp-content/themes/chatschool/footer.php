@@ -25,9 +25,19 @@
           </nav>
         </div>
         <div class="col col-desktop-3 social col-4">
-          <a href=""><img src="<?= SONDIR; ?>/images/social-facebook.png" alt=""></a>
-          <a href=""><img src="<?= SONDIR; ?>/images/social-twitter.png" alt=""></a>
-          <a href=""><img src="<?= SONDIR; ?>/images/social-youtube.png" alt=""></a>
+          <?php
+          if( have_rows('son-op-socials', 'option') ):
+            while ( have_rows('son-op-socials', 'option') ) : the_row();
+              ?>
+                <a href="<?= get_sub_field('link'); ?>">
+                  <?= get_sub_field('icon'); ?>
+                </a>
+              <?php
+            endwhile;
+          else :
+          // no rows found
+          endif;
+          ?>
         </div>
       </div>
     </div>
