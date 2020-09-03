@@ -15,6 +15,7 @@
     wp_enqueue_style('sonchat-style', SONDIR . '/css/theme.min.css');
   
     // wp_enqueue_script( 'sonchat-script', sprintf("%s/js/theme.min.js", SONDIR), $deps = [], '', false);
+    wp_enqueue_script( 'sonchat-script-font', 'https://kit.fontawesome.com/f6df2dadcb.js', $deps = [], '', false);
   }
 
   add_action('wp_enqueue_scripts', 'son_load_files_prod');
@@ -28,4 +29,6 @@
       'footer' => 'Rodapé',
     ]);
   }
+
+  add_theme_support('post-thumbnails');
   

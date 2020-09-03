@@ -1,6 +1,7 @@
 <?php 
 	get_header();
 ?>
+
   <main>
     <?php
       get_template_part('inc/sections/services');

@@ -2,8 +2,14 @@
     <div class="container">
       <div class="row">
         <div class="col col-offset-desktop-1 col-desktop-3">
-          <p><a href=""><img src="<?= SONDIR; ?>/images/logo.png" alt="Logo da Chatschool"></a></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla mollis erat, vitae pulvinar nisi laoreet eget. Curabitur at arcu mi. Cras vitae pharetra mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed id felis leo. Maecenas est est, vulputate at congue non, pulvinar eu arcu.</p>
+          <p>
+            <a href="<?= get_site_url(); ?>">
+              <img src="<?= get_field('son-op-logo', 'option'); ?>" alt="Logo da Chatschool">
+            </a>
+          </p>
+          <p>
+          <?= get_field('son-op-home-resume', 'option'); ?>
+          </p>
         </div>
         <div class="col col-offset-desktop-1 col-desktop-2 col-2">
           <h3>Menu</h3>

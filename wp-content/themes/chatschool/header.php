@@ -12,12 +12,12 @@
 </head>
 <body>
   <header id="header" class="page-home">
-    <img class="top-banner" src="<?= SONDIR; ?>/images/background-header.jpg" alt="">
+    <img class="top-banner" src="<?= get_field('son-op-banner-home', 'option'); ?>" alt="">
     <div class="container">
       <div class="row">
         <div class="col col-desktop-3 col-6">
-          <a href="index.html">
-            <img src="<?= SONDIR; ?>/images/logo.png" alt="Logo da Chatschool">
+          <a href="<?= get_site_url(); ?>">
+            <img src="<?= get_field('son-op-logo', 'option'); ?>" alt="Logo da Chatschool">
           </a>
         </div>
         <div class="col col-desktop-9 col-6">
@@ -35,8 +35,8 @@
       </div>
       <div class="row">
         <div class="col col-desktop-12 title">
-          <h1>Alta produtividade em tempo real</h1>
-          <a href="produto.html" class="btn">Começar agora</a>
+          <h1><?= get_field('son-op-home-title', 'option'); ?></h1>
+          <a href="<?= get_field('son-op-home-link', 'option'); ?>" class="btn"><?= get_field('son-op-home-text-button', 'option'); ?></a>
         </div>
       </div>
     </div>

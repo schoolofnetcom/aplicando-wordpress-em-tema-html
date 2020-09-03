@@ -1,34 +1,28 @@
 <section id="how-it-work" class="section section-center">
-      <h2>Como funciona</h2>
-      <p class="subtitle">Lorem ipsum dolor sit amet. Proin gravida nibh vel velit auctor aliquet</p>
+  <h2>Serviços</h2>
+  <p class="subtitle">Conheça nossos serviços</p>
 
-      <div class="container">
-        <div class="row">
-          <div class="col col-desktop-4">
-            <div class="icon-container">
-              <i class="material-icons">schedule</i>
-            </div>
-            <h3>Chat em tempo real</h3>
-            <p>Aenean sollicitudin, lorem quis bibendum. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,</p>
-            <p><a href="" class="btn">Saiba mais</a></p>
-          </div>
-          <div class="col col-desktop-4">
-            <div class="icon-container">
-              <i class="material-icons">work</i>
-            </div>
-            <h3>Grupo de trabalho</h3>
-            <p>Aenean sollicitudin, lorem quis bibendum. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,</p>
-            <p><a href="" class="btn">Saiba mais</a></p>
-          </div>
-          <div class="col col-desktop-4">
-            <div class="icon-container">
-              <i class="material-icons">https</i>
-            </div>
-            <h3>Segurança</h3>
-            <p>Aenean sollicitudin, lorem quis bibendum. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,</p>
-            <p><a href="" class="btn">Saiba mais</a></p>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="row">
 
-    </section>
+      <?php
+      if( have_rows('son-op-services', 'option') ):
+        while ( have_rows('son-op-services', 'option') ) : the_row();
+          ?>
+          <div class="col col-desktop-4">
+            <div class="icon-container">
+              <?= get_sub_field('icon'); ?>
+            </div>
+            <h3><?= get_sub_field('title'); ?></h3>
+            <p><?= get_sub_field('description'); ?></p>
+            <p><a href="<?= get_site_url(); ?>/quem-somos" class="btn">Saiba mais</a></p>
+          </div>
+          <?php
+        endwhile;
+      endif;
+      ?>
+
+    </div>
+  </div>
+
+</section>
