@@ -1,6 +1,7 @@
 <?php
 
   define('SONDIR', get_template_directory_uri());
+  define('SONINC', get_template_directory() . '/inc');
 
   show_admin_bar(false);
 
@@ -17,3 +18,14 @@
   }
 
   add_action('wp_enqueue_scripts', 'son_load_files_prod');
+
+  include_once(SONINC . '/functions.php');
+
+
+  if ( function_exists( 'register_nav_menus' ) ) {
+    register_nav_menus( [
+      'main' => 'Principal',
+      'footer' => 'Rodapé',
+    ]);
+  }
+  

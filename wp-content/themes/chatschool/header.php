@@ -22,13 +22,14 @@
         </div>
         <div class="col col-desktop-9 col-6">
           <nav>
-            <ul>
+            <!-- <ul>
               <li><a href="/" class="active">Home</a></li>
               <li><a href="quem-somos.html">Quem somos</a></li>
               <li><a href="clientes.html">Clientes</a></li>
               <li><a href="equipe.html">Equipe</a></li>
               <li><a href="contato.html">Contato</a></li>
-            </ul>
+            </ul> -->
+            <?php wp_nav_menu(['theme_location' => 'main']); ?>
           </nav>
         </div>
       </div>

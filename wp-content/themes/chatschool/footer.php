@@ -8,13 +8,14 @@
         <div class="col col-offset-desktop-1 col-desktop-2 col-2">
           <h3>Menu</h3>
           <nav>
-            <ul>
+            <!-- <ul>
               <li><a href="/" class="active">Home</a></li>
               <li><a href="quem-somos.html">Quem somos</a></li>
               <li><a href="clientes.html">Clientes</a></li>
               <li><a href="equipe.html">Equipe</a></li>
               <li><a href="contato.html">Contato</a></li>
-            </ul>
+            </ul> -->
+            <?php wp_nav_menu(['theme_location' => 'footer']); ?>
           </nav>
         </div>
         <div class="col col-desktop-3 social col-4">
